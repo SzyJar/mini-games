@@ -40,7 +40,7 @@ class Rps {
     opponent_history.push(prev_play);
 
     // Level of insight
-    const level = 12;
+    const level = 15;
 
     // Predict opponent's next move
     let match = 0;

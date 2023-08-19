@@ -1,24 +1,22 @@
 import './assets/App.scss';
-
+import RpsGame from './rpsGame'
 import Sudoku from './components/sudoku/sudoku'
-import Rps from './components/rps/rps'
+
 
 const sudoku = new Sudoku();
-const rps = new Rps();
 
-console.log(rps.play('P', rps.predict()));
-
-sudoku.generateNewSolution();
-sudoku.modyfiBoard(sudoku.solution)
+//sudoku.generateNewSolution();
+//sudoku.modyfiBoard(sudoku.solution)
 // easy = 30
 // medium = 44
 // hard = 50
-sudoku.newProblem(50);
-console.log(sudoku.toString())
-sudoku.validate();
-sudoku.modyfiBoard([[0,9]])
-sudoku.validate();
-console.log(sudoku.validation_board)
+// sudoku.newProblem(50);
+// console.log(sudoku.toString())
+// sudoku.validate();
+// sudoku.modyfiBoard([[0,9]])
+// sudoku.validate();
+// console.log(sudoku.validation_board)
+
 
 function App() {
   return (
@@ -32,6 +30,7 @@ function App() {
               <span key={columnIndex}>{cell + ' '}</span>
             ))}</p>
           ))}
+        <RpsGame />
       </div>
     </div>
   );

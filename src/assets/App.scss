@@ -1,4 +1,6 @@
 $primary-color: #282c34;
+$text-color: white;
+$link-color: #61dafb;
 
 .App {
   text-align: center;
@@ -17,11 +19,11 @@ $primary-color: #282c34;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: $text-color;
 }
 
 .App-link {
-  color: #61dafb;
+  color: $link-color;
 }
 
 .App-body {

@@ -1,10 +1,12 @@
 import './assets/App.scss';
 
 import Sudoku from './components/sudoku/sudoku'
-
+import Rps from './components/rps/rps'
 
 const sudoku = new Sudoku();
+const rps = new Rps();
 
+console.log(rps.play('P', rps.predict()));
 
 sudoku.generateNewSolution();
 sudoku.modyfiBoard(sudoku.solution)

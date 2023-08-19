@@ -1,33 +1,102 @@
 $primary-color: #282c34;
+$secondary-color: rgba(52, 48, 40, 0.95);
 $text-color: white;
-$link-color: #61dafb;
+$text-color-secondary: #1a1a1a;
+
+$button-size: 100px;;
 
 .App {
   text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-
-}
-
-.App-header {
-  background-color: $primary-color;
-  min-height: 50px;
-  max-height: 5vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: $text-color;
-}
-
-.App-link {
-  color: $link-color;
-}
-
 .App-body {
   background-color: $primary-color;
-  min-height: calc(100vh - 50px);
   color: $text-color;
+  display: grid;
+  align-items: center;
+  gap: 10px;
+  height: 100vh;
+
+  >.rps-game{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    >.bot {
+      width: 500px;
+      position: relative;
+
+      >img {
+        width: 100%;
+        border-radius: 5%;
+      }
+      >.response {
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        transform: translate(-50%);
+        z-index: 1;
+        margin-top: -100px;
+        padding: 5px 25px 5px 25px;
+        width: 80%;
+        height: 20%;
+        border-radius: 50px;
+        border: 2px solid $text-color;
+        background-color: $secondary-color;
+        font-size: 105%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    >.ui {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      >h1, p {
+        padding: 0;
+        margin: 10px;
+      }
+
+      >h1 {
+        width: 100%;
+        text-align: left;
+        margin-left: 50px;
+      }
+    }
+
+  }
+
+  button {
+    border: none;
+    padding: 10px;
+    margin: 20px;
+    min-width: $button-size;
+    font-size: $button-size;
+    border-radius: 40%;
+    border: 2px solid $primary-color;
+    cursor: pointer;
+    transition: transform 0.25s ease-out;
+
+    &:active {
+      transform: translate(2px, 2px);
+    }
+  }
+
+  .back{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    font-size: 70px;
+    border-radius: 50%;
+    border: 2px solid $text-color;
+    color: $text-color;
+    background-color: $primary-color;
+  }
 }
+

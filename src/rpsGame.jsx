@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Rps from './controllers/rps/rps.js';
+import { makeResponse } from './controllers/rps/response'
 import TypingAnimation from './controllers/rps/typingAnimation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHand, faHandBackFist, faHandScissors } from '@fortawesome/free-regular-svg-icons'
@@ -58,49 +59,12 @@ class RpsGame extends Component {
       });
     }
 
-    if (this.state.winrate > 58 && this.rps.player_history.length > 10) {
+    let response = makeResponse(this.state.winrate, this.rps.player_history.length)
+    if (response) {
       this.setState({
-        response: 'I am impressed that you managed to get a positive win rate against me!'
-      });
-    };
-
-    if (this.state.winrate > 68 && this.rps.player_history.length > 22) {
-      this.setState({
-        response: 'It\'s IMPOSSIBLE! How are you winning so many rounds?'
-        + ' Did you change my code to beat me?'
-      });
-    };
-
-    if (this.state.winrate < 40 && this.rps.player_history.length > 15) {
-      this.setState({
-        response: 'You are predictable.'
-      });
-    };
-
-    if (this.state.winrate < 20 && this.rps.player_history.length > 35) {
-      this.setState({
-        response: 'It\'s too easy to beat you, you\'re not even trying, are you?'
-      });
-    };
-
-    if (this.state.winrate < 14 && this.rps.player_history.length > 55) {
-      this.setState({
-        response: 'It\'s pointless, you\'re not going anywhere with your strategy.'
-      });
-    };
-
-    if (this.state.winrate > 25 && this.rps.player_history.length > 100) {
-      this.setState({
-        response: 'Mhhh....'
-      });
-    };
-
-    if (this.state.winrate > 35 && this.rps.player_history.length > 100) {
-      this.setState({
-        response: 'You are persistent. But the longer you play, the harder it gets.'
-      });
-    };
-
+        response: response,
+      })
+    }
   };
 
   changeScreen = () => {

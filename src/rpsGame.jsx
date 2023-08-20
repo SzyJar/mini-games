@@ -75,7 +75,7 @@ class RpsGame extends Component {
     return (
       <div className="rps-game">
         <div className="bot">
-          <img src={require('./assets/img/rps_girl.png')} alt="RPS Player" />
+          <img src={require('./assets/img/rps_girl.png')} alt="Monika" />
           <div className='response'>
             <TypingAnimation text={this.state.response}/>
           </div>

@@ -5,12 +5,15 @@ $text-color-secondary: #1a1a1a;
 
 $button-size: 100px;;
 
+body {
+  background-color: $primary-color;
+}
+
 .App {
   text-align: center;
 }
 
 .App-body {
-  background-color: $primary-color;
   color: $text-color;
   display: grid;
   align-items: center;
@@ -56,6 +59,9 @@ $button-size: 100px;;
       justify-content: center;
       flex-direction: column;
 
+      >h1 {
+        width: 240px;
+      }
       >h1, p {
         padding: 0;
         margin: 10px;

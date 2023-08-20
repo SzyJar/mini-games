@@ -21,7 +21,7 @@ $text-color-secondary: #1a1a1a;
       width: 20vmin;
       min-width: 110px;
       height: 10vmin;
-      min-height: 80px;
+      min-height: 90px;
       font-size: 1.6rem;
       border-radius: 10px;
       padding: 0;
@@ -37,7 +37,7 @@ $text-color-secondary: #1a1a1a;
         width: 10vmin;
         min-width: 50px;
         height: 5vmin;
-        min-height: 40px;
+        min-height: 50px;
         font-size: 0.8rem;
         padding: 0;
         margin: 0;
@@ -79,9 +79,20 @@ $text-color-secondary: #1a1a1a;
     border-radius: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 
+    p {
+      margin: 10px;
+    }
+    
+    img {
+      width: 200px;
+      height: 200px;
+      padding: 0;
+      margin: 0;
+    }
+
     button {
-      height: 100px;
-      font-size: 70px;
+      font-size: 30px;
+      padding: 20px;
       border-radius: 20px;
     }
   }

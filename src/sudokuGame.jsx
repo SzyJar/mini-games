@@ -4,10 +4,11 @@ import './assets/sudoku.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
 
+
 const difficulties = {
-  "easy": 1,
-  "medium": 30,
-  "hard": 60 
+  "easy": 15,
+  "medium": 27,
+  "hard": 35 
 }
 
 class SudokuGame extends Component {
@@ -104,7 +105,9 @@ class SudokuGame extends Component {
           {this.state.win_message && (
             <div className="modal">
               <div className="modal-content">
-                <p>Congratulations!<br/>You have completed the puzzle!</p>
+                <p>Congratulations!</p>
+                <img src={require('./assets/img/chibi_victory.png')} alt="RPS Player" />
+                <p>You have completed the puzzle!</p>
                 <button onClick={this.closeModal}>Close</button>
               </div>
             </div>

@@ -25,8 +25,7 @@ export function makeResponse(winrate, history) {
   };
 
   if (winrate > 65 && history > 22) {
-    return'It\'s IMPOSSIBLE! How are you winning so many rounds?'
-      + ' Did you change my code to beat me?'
+    return 'It\'s IMPOSSIBLE! How are you winning so many rounds?'
   };
 
   return false;

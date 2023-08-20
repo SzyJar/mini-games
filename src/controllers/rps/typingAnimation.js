@@ -3,7 +3,7 @@ import '../../assets/typingAnimation.css';
 
 const TypingAnimation = ({ text }) => {
   const [displayText, setDisplayText] = useState('');
-  const typingSpeed = 40;
+  const typingSpeed = 30;
 
   useEffect(() => {
     let currentIndex = 0;

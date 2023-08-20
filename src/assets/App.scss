@@ -67,7 +67,6 @@ $button-size: 100px;;
         margin-left: 50px;
       }
     }
-
   }
 
   button {
@@ -86,7 +85,7 @@ $button-size: 100px;;
     }
   }
 
-  .back{
+  .back {
     position: fixed;
     top: 0;
     left: 0;
@@ -97,6 +96,47 @@ $button-size: 100px;;
     border: 2px solid $text-color;
     color: $text-color;
     background-color: $primary-color;
+
+    &:hover{
+      background-color: $text-color-secondary;
+    }
   }
+
+  .welcome {
+    position: absolute;
+    top: 5;
+    left: 50%;
+    transform: translate(-50%);
+    gap: 10px;
+    max-width: 700px;
+    min-height: 500px;
+  }
+
+  .navi {
+    border: 2px solid $text-color;
+    color: $text-color;
+    background-color: $primary-color;
+    border-radius: 20px;
+    min-height: 300px;
+    width: 300px;
+    font-size: 60px;
+
+    &:hover{
+      background-color: $text-color-secondary;
+    }
+
+    >p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .description-box {
+    display: flex;
+    flex-direction: column;
+    margin: 20 auto;
+    font-size: 140%;
+  }
+
 }
 

@@ -22,15 +22,11 @@ class RpsGame extends Component {
         winrate: 0.0,
         bot_play: '',
         your_play: '',
-        winner: 'Monica is waiting.',
+        winner: 'Monika is waiting.',
         total_games: 'Rock, Paper, Scissors!',
         response: 'You are not going to beat me in Rock, Paper, Scissors!'
         + ' I am undefeated!'
       }
-  }
-  
-  goBack = () => {
-    this.props.onClick();
   }
 
   makeMove = (move) => {
@@ -46,9 +42,9 @@ class RpsGame extends Component {
     if (winner === 'player') {
       this.setState({ winner: 'You won this round!' });
     } else if (winner === 'bot') {
-      this.setState({ winner: 'Monica has won this round!' });
+      this.setState({ winner: 'Monika has won this round!' });
     } else {
-      this.setState({ winner: 'Its a tie!' });
+      this.setState({ winner: 'It\'s a tie!' });
     }
 
     const games = this.rps.player_history.length;
@@ -87,9 +83,9 @@ class RpsGame extends Component {
       });
     };
 
-    if (this.state.winrate < 14 && this.rps.player_history.length > 45) {
+    if (this.state.winrate < 14 && this.rps.player_history.length > 55) {
       this.setState({
-        response: 'It is pointless, I refuse to participate any longer in this farce.'
+        response: 'It\'s pointless, you\'re not going anywhere with your strategy.'
       });
     };
 
@@ -101,11 +97,15 @@ class RpsGame extends Component {
 
     if (this.state.winrate > 35 && this.rps.player_history.length > 100) {
       this.setState({
-        response: 'You are persistent. But the more you play, the harder it gets.'
+        response: 'You are persistent. But the longer you play, the harder it gets.'
       });
     };
 
   };
+
+  changeScreen = () => {
+    this.props.back('welcome');
+  }
 
   render() {
     return (
@@ -117,13 +117,13 @@ class RpsGame extends Component {
           </div>
         </div>
         <div className="ui">
-          <button className='back' onClick={this.goBack}>
+          <button className='back' onClick={this.changeScreen}>
           < FontAwesomeIcon icon={faArrowLeftLong} />
           </button>
-          <h1>Monica played:&nbsp;&nbsp;  { this.state.bot_play }</h1>
+          <h1>Monika played:&nbsp;&nbsp;  { this.state.bot_play }</h1>
           <h1>You played:&nbsp;&nbsp; { this.state.your_play }</h1>
           <h1>{this.state.winner}</h1>
-          <p>Your winrate: { this.state.winrate } %</p>
+          <p>Your winrate is { this.state.winrate } %</p>
           <p>{this.state.total_games}</p>
           <div className="user-input">
             <button onClick={() => this.makeMove('P')}>

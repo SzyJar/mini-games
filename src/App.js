@@ -1,25 +1,32 @@
 import './assets/App.scss';
 import WelcomeScren from './welcome'
+import React, { Component } from 'react';
 import RpsGame from './rpsGame'
 import SudokuGame from './sudokuGame'
 
 
-
-
-function App() {
-  let game = 'rps';
-  function changeScreen(name) {
-    game = name;
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      game: 'welcome',
+    }
   }
-  return (
-    <div className="App">
-      <div className="App-body">
-      { game === 'rps' ? <RpsGame onClick={changeScreen('welcome')}/>
-      : game === 'sudoku' ? <SudokuGame onClick={changeScreen('welcome')}/>
-      : <WelcomeScren /> }
+
+  changeScreen = (name) => {
+    this.setState({game: name});
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <div className="App-body">
+        { this.state.game === 'rps' ? <RpsGame back={this.changeScreen}/>
+        : this.state.game === 'sudoku' ? <SudokuGame back={this.changeScreen}/>
+        : <WelcomeScren change={this.changeScreen} /> }
+        </div>
       </div>
-    </div>
-  );
+  )};
 }
 
 export default App;

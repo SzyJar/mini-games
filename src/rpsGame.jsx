@@ -123,7 +123,7 @@ class RpsGame extends Component {
           <h1>Monika played:&nbsp;&nbsp;  { this.state.bot_play }</h1>
           <h1>You played:&nbsp;&nbsp; { this.state.your_play }</h1>
           <h1>{this.state.winner}</h1>
-          <p>Your winrate is { this.state.winrate } %</p>
+          <p>Your win rate is { this.state.winrate } %</p>
           <p>{this.state.total_games}</p>
           <div className="user-input">
             <button onClick={() => this.makeMove('P')}>

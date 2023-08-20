@@ -27,7 +27,7 @@ class Rps {
     let guess = "S";
     let predict = null;
     
-    if (opponent_history.length > 500) {
+    if (opponent_history.length > 300) {
       opponent_history.shift();
       my_history.shift();
     }
@@ -40,7 +40,7 @@ class Rps {
     opponent_history.push(prev_play);
 
     // Level of insight
-    const level = 15;
+    const level = 9;
 
     // Predict opponent's next move
     let match = 0;

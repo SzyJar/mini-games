@@ -5,7 +5,7 @@ class WelcomeScreen extends Component {
   constructor() {
     super();
     this.state = {
-      description: 'Hello! Choose game you are interested in!',
+      description: 'Hello there! Select the game you are interested in!',
     }
   }
   changeScreenRps = () => {

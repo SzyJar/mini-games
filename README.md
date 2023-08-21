@@ -14,4 +14,9 @@ Challenge Monika to a game of rock, paper, scissors. Monika will skillfully stud
 
 ![image](https://github.com/SzyJar/mini-games/assets/107247457/1ba7969a-e858-4f80-942b-132bdb513f36)
 
+## Candy shop
+Thieves have targeted your candy shop! Prevent them from escaping and save your sweets! Capture as many thieves as possible!
+
+![image](https://github.com/SzyJar/mini-games/assets/107247457/d56c36b0-ac4a-4789-bdae-11c441b3eba9)
+
 

@@ -14,6 +14,7 @@ const difficulties = {
 class SudokuGame extends Component {
   componentDidMount() {
     this.generateNew();
+    this.animateCells();
   }
 
   constructor() {
@@ -29,7 +30,8 @@ class SudokuGame extends Component {
         edit_mask: new Array(9).fill(null).map(
           () => new Array(9).fill(true)
         ),
-        difficulty: difficulties.easy
+        difficulty: difficulties.easy,
+        animateIndex: 0,
       }
   }
 
@@ -47,8 +49,9 @@ class SudokuGame extends Component {
       row.map((value) => value === 0)),
       solution_mask: new Array(9).fill(null).map(
         () => new Array(9).fill(true)),
-      win_message: false
-    })
+      win_message: false,
+      animateIndex: 0
+    }, () => this.animateCells())
   }
 
   validate = () => {
@@ -82,6 +85,16 @@ class SudokuGame extends Component {
       board: newBoard
     })
   }
+
+  animateCells = () => {
+    const animateIndex = this.state.animateIndex;
+
+    if (animateIndex < (this.state.board.length * this.state.board[0].length)) {
+      this.setState({ animateIndex: animateIndex + 1 });
+
+      setTimeout(this.animateCells, 30);
+    }
+  };
 
   changeToEasy = () => {
     this.setState({ difficulty: difficulties.easy });
@@ -121,7 +134,8 @@ class SudokuGame extends Component {
                     ${this.state.solution_mask[rowIndex][colIndex] ? '' : 'red'}
                     ${this.state.edit_mask[rowIndex][colIndex] ? 'edit' : '' }
                     ${rowIndex % 3 === 2 && rowIndex !== 8 ? 'bottom-border-bold' : ''}
-                    ${colIndex % 3 === 2 && colIndex !== 8 ? 'right-border-bold' : ''}`}
+                    ${colIndex % 3 === 2 && colIndex !== 8 ? 'right-border-bold' : ''}
+                    ${this.state.animateIndex >= rowIndex * colIndex ? 'cell-appear active' : ''}`}
                   type="text"
                   value={cellValue > 0 && cellValue <= 9  ? cellValue : ''}
                   onChange={event => this.handleCellChange(rowIndex, colIndex, event.target.value)}

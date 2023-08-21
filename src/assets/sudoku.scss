@@ -109,6 +109,14 @@ $text-color-secondary: #1a1a1a;
       cursor: auto;
       background-color: $primary-color;
       color: $text-color;
+      opacity: 0;
+      transform: translate(14px, 14px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+
+      &.cell-appear.active {
+        opacity: 1;
+        transform: translate(0);
+      }
 
       &.edit {
         cursor: pointer;

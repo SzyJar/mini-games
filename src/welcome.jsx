@@ -34,7 +34,7 @@ class WelcomeScreen extends Component {
             <p>Rock Paper Scissors</p>
           </button>
           <button className="navi" onClick={this.changeScreenShooter}>
-            <p>Shooter</p>
+            <p>Candy Stash</p>
           </button>
         </div>
       </div>

@@ -73,7 +73,7 @@ class RpsGame extends Component {
 
   render() {
     return (
-      <div className="rps-game">
+      <div className="game">
         <div className="bot">
           <img src={require('./assets/img/rps_girl.png')} alt="Monika" />
           <div className='response'>

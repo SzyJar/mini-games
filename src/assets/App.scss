@@ -30,10 +30,16 @@ body {
       width: 500px;
       position: relative;
 
-      >img {
-        width: 100%;
+      >.monika {
+        width: 500px;
+        height: 500px;
         border-radius: 5%;
+        background-image: url('./img/rps_girl.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
       }
+
       >.response {
         position: absolute;
         bottom: 5%;
@@ -110,7 +116,7 @@ body {
 
   .welcome {
     position: absolute;
-    top: 5;
+    top: 0;
     left: 50%;
     transform: translate(-50%);
     gap: 10px;

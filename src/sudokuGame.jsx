@@ -122,7 +122,7 @@ class SudokuGame extends Component {
             <div className="modal">
               <div className="modal-content">
                 <p>Congratulations!</p>
-                <img src={require('./assets/img/chibi_victory.png')} alt="RPS Player" />
+                <div className='victory' />
                 <p>You have completed the puzzle!</p>
                 <button onClick={this.closeModal}>Close</button>
               </div>

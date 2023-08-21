@@ -4,7 +4,7 @@
 The games are written in JavaScript, user interface is made with react.
 
 ## Sudoku
-Select your preferred difficulty level from three exciting options: Easy, Medium, and Hard. Each puzzle is uniquely generated to ensure a fresh experience every time.
+Select your preferred difficulty level from three options: Easy, Medium, and Hard. Each puzzle is uniquely generated to ensure a fresh experience every time.
 After entering your solution, click the "Check my solution" button. You'll get instant feedback, highlighting your mistakes and celebrating your successes.
 
 ![image](https://github.com/SzyJar/mini-games/assets/107247457/9f1fb5b6-6d6b-4e1b-bb7d-d232856a4d72)

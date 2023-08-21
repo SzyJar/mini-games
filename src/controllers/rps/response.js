@@ -12,7 +12,7 @@ export function makeResponse(winrate, history) {
     return 'You are persistent. But the longer you play, the harder it gets.'
   };
 
-  if (winrate > 25 && winrate < 30 && history > 100) {
+  if (winrate > 27 && winrate < 33 && history > 100) {
     return 'Mhhh.... Interesting.'
   };
 
@@ -20,12 +20,12 @@ export function makeResponse(winrate, history) {
     return 'You are predictable.'
   };
 
-  if (winrate > 58 && history > 12) {
+  if (winrate > 55 && history > 12) {
     return 'I am impressed that you managed to get a positive win rate against me!'
   };
 
-  if (winrate > 65 && history > 22) {
-    return 'It\'s IMPOSSIBLE! How are you winning so many rounds?'
+  if (winrate > 63 && history > 22) {
+    return 'It\'s IMPOSSIBLE! How are you able to win so many rounds?'
   };
 
   return false;

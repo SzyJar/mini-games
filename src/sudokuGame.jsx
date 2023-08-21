@@ -73,16 +73,19 @@ class SudokuGame extends Component {
 
   handleCellChange = (rowIndex, colIndex, content) => {
     const newBoard = [...this.state.board];
+    const newSolutionMask = [...this.state.solution_mask]
     const new_value = parseInt(content[0])
 
     newBoard[rowIndex][colIndex] = 0;
 
     if (new_value >= 0 && new_value <= 9) {
       newBoard[rowIndex][colIndex] = new_value;
+      newSolutionMask[rowIndex][colIndex] = true;
     }
     
     this.setState({
-      board: newBoard
+      board: newBoard,
+      solution_mask: newSolutionMask
     })
   }
 

@@ -16,6 +16,10 @@ class WelcomeScreen extends Component {
     this.props.change('sudoku');
   }
 
+  changeScreenShooter = () => {
+    this.props.change('shooter');
+  }
+
   render() {
     return (
       <div className='welcome'>
@@ -28,6 +32,9 @@ class WelcomeScreen extends Component {
           </button>
           <button className="navi" onClick={this.changeScreenRps}>
             <p>Rock Paper Scissors</p>
+          </button>
+          <button className="navi" onClick={this.changeScreenShooter}>
+            <p>Shooter</p>
           </button>
         </div>
       </div>

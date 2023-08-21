@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/mini-games/static/css/main.b4accc54.css",
-    "main.js": "/mini-games/static/js/main.78ce8a6f.js",
+    "main.css": "/mini-games/static/css/main.59cbe77d.css",
+    "main.js": "/mini-games/static/js/main.9a63faab.js",
     "static/js/787.86d50049.chunk.js": "/mini-games/static/js/787.86d50049.chunk.js",
     "static/media/rps_girl.png": "/mini-games/static/media/rps_girl.21b81cc260c4b55686ba.png",
     "static/media/chibi_victory.png": "/mini-games/static/media/chibi_victory.5728a1c8d18f099acbf3.png",
     "index.html": "/mini-games/index.html",
-    "main.b4accc54.css.map": "/mini-games/static/css/main.b4accc54.css.map",
-    "main.78ce8a6f.js.map": "/mini-games/static/js/main.78ce8a6f.js.map",
+    "main.59cbe77d.css.map": "/mini-games/static/css/main.59cbe77d.css.map",
+    "main.9a63faab.js.map": "/mini-games/static/js/main.9a63faab.js.map",
     "787.86d50049.chunk.js.map": "/mini-games/static/js/787.86d50049.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b4accc54.css",
-    "static/js/main.78ce8a6f.js"
+    "static/css/main.59cbe77d.css",
+    "static/js/main.9a63faab.js"
   ]
 }

@@ -1,7 +1,7 @@
 # Mini games
 ## Visit https://szyjar.github.io/mini-games/ for live project
 
-The games are written in JavaScript, user interface is made with react.
+The games are coded in JavaScript, while the user interface is built using React.
 
 ## Sudoku
 Select your preferred difficulty level from three options: Easy, Medium, and Hard. Each puzzle is uniquely generated to ensure a fresh experience every time.

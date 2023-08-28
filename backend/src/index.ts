@@ -1,56 +1,86 @@
 import http from 'http';
+const bcrypt = require('bcrypt');
 import { Server, Socket } from 'socket.io';
-import { test } from './db/queries'
+import { selectUser, createUser } from './db/queries';
 
 
 const server = http.createServer();
 const io = new Server(server);
 
 const PORT = 5000;
+const saltRounds = 12;
 
 interface Player {
   name: string;
   socket_id: string
 }
 
-const players: Player[] = [
-  // active players go here
-];
-
-test()
-
-function findPlayerNameBySocketId(socketId: string): string {
-  const player = players.find((p) => p.socket_id === socketId);
-  return player ? player.name : 'Anonymous';
+interface PlayersMap {
+  [socket_id: string]: Player;
 }
 
-io.on('connect', (socket: Socket) => {
-  console.log(`\x1b[32mNew client connected!\x1b[0m\nClient ID: ${socket.id}\n`);
+const players: PlayersMap = {
+  // Active players goes here
+}
 
-  socket.on('login', (name: String, password: String) => {
-    // check db 
-    // push to active users
+io.on('connect', (socket: Socket): void => {
+  console.log(`\n\x1b[32mNew client connected!\x1b[0m\nClient ID: ${socket.id}`);
+
+  socket.on('login', async (name: string, password: string): Promise<void> => {
+    // Check db
+    const user = await selectUser(name);
+    if (user !== null){
+      const isValidPassword = await bcrypt.compareSync(password, user.password);
+      if (isValidPassword) {
+        // Push to active player list
+        if(!players.hasOwnProperty(socket.id)) {
+          const newPlayer: Player = { name: user.name, socket_id: socket.id };
+          players[newPlayer.socket_id] = newPlayer;
+        }
+        socket.emit('success');
+      }
+    } else {
+      socket.emit('fail');
+    }
   })
 
-  socket.on('register', (name: String, password: String) => {
-    // check db 
-    // insert into db
-    // push to active users
+  socket.on('register', async (name: string, password: string): Promise<void> => {
+    // Check db
+    const user = await selectUser(name);
+    // Insert into db
+    if(!user) {
+      try {
+        const hash = await bcrypt.hash(password, saltRounds);
+        const new_user_id = await createUser(name, hash);
+        // Push to active users
+        const newPlayer: Player = { name: name, socket_id: socket.id };
+        players[newPlayer.socket_id] = newPlayer;
+        socket.emit('success');
+      } catch (error) {
+        console.log('Error in register: ', error);
+        socket.emit('fail');
+      }
+    } else {
+      socket.emit('fail');
+    }
   })
 
-  socket.on('new-achievement', (achiev_id: number) => {
+  socket.on('new-achievement', (achiev_id: number): void => {
     // save to db
     // 
-    const player_name = findPlayerNameBySocketId(socket.id);
+    const player_name = players[socket.id]
     socket.emit('new-achievment', player_name, achiev_id);
   });
 
-  socket.on('disconnect', () => {
-    console.log(`\x1b[31mClient disconnected!\x1b[0m\nClient ID: ${socket.id}\n`);
+  socket.on('disconnect', (): void => {
+    console.log(`\n\x1b[31mClient disconnected!\x1b[0m\nClient ID: ${socket.id}`);
+    if(players.hasOwnProperty(socket.id)) {
+      delete players[socket.id];
+    }
   });
 
 });
 
-server.listen(PORT, () => {
+server.listen(PORT, (): void => {
   console.log(`WebSocket server is running on port ${PORT}`);
 });

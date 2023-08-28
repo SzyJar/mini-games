@@ -15,7 +15,7 @@ class App extends Component {
   }
 
   changeScreen = (name) => {
-    this.setState({game: name});
+    this.setState({ game: name });
   }
 
   render() {

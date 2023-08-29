@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 
-const Shooter = () => {
+const Shooter = ({ achiev }) => {
   useEffect(() => {
     const container = document.getElementById("game-area");
 
@@ -15,7 +15,12 @@ const Shooter = () => {
         <div>Candy retrieved: ${clickCount}</div>
         <div>Candy stolen: ${stealCount}</div>
       `;
-      } catch (erro) {
+      if(clickCount === 20 && stealCount < 3) {
+        achiev(7);
+      } else if (clickCount < 10 && stealCount === 20) {
+        achiev(8);
+      }      
+      } catch (error) {
         // Don't show error on trying to assing to
         // 'countDisplay' null element
       }
@@ -90,7 +95,7 @@ const Shooter = () => {
     return () => {
       clearInterval(intervalId);
     }
-  }, []);
+  }, [achiev]);
 
   return (
     <div id="game-area">

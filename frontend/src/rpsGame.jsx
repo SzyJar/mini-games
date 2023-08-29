@@ -25,7 +25,8 @@ class RpsGame extends Component {
         winner: 'Monika is waiting.',
         total_games: 'Rock, Paper, Scissors!',
         response: 'You are not going to beat me in Rock, Paper, Scissors!'
-        + ' I am undefeated!'
+        + ' I am undefeated!',
+        achievements: []
       }
   }
 
@@ -58,11 +59,22 @@ class RpsGame extends Component {
       });
     }
 
-    let response = makeResponse(this.state.winrate, this.rps.player_history.length)
+    const [winrate, history] = [this.state.winrate, this.rps.player_history.length];
+    let response = makeResponse(winrate, history)
     if (response) {
       this.setState({
         response: response,
       })
+    }
+    if (winrate > 63 && history > 22 && !this.state.achievements.includes(5)) {
+      this.props.achiev(5);
+      this.setState({ achievements: [5, ...this.state.achievements] });
+    } else if (winrate > 53 && history > 12 && !this.state.achievements.includes(4)) {
+      this.props.achiev(4);
+      this.setState({ achievements: [5, ...this.state.achievements] });
+    } else if (winrate < 10 && history > 15 && !this.state.achievements.includes(6)) {
+      this.props.achiev(6);
+      this.setState({ achievements: [5, ...this.state.achievements] });
     }
   };
 

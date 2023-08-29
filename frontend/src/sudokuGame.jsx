@@ -57,6 +57,13 @@ class SudokuGame extends Component {
       if(this.sudoku.validation_board.every(row => row.every(value => value === true))
       && this.sudoku.board.every(row => row.every(value => value > 0))) {
         this.setState({ win_message: true });
+        if(this.state.difficulty === difficulties.easy) {
+          this.props.achiev(1);
+        } else if (this.state.difficulty === difficulties.medium) {
+          this.props.achiev(2);
+        } else if (this.state.difficulty === difficulties.medium) {
+          this.props.achiev(3);
+        }
       }
     })
   }

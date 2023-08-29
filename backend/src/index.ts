@@ -73,14 +73,17 @@ io.on('connect', (socket: Socket): void => {
   socket.on('new-achievement', async (achiev_id: number): Promise<void> => {
     // save to db
     try {
+      let player: Player = {
+        player_id: 0,
+        name: 'Anonymous',
+        socket_id: '0'
+      }
       if(players.hasOwnProperty(socket.id)) {
         const player = players[socket.id];
         const scored = await scoreAchievement(player.player_id, achiev_id);
-
-        socket.broadcast.emit('new-achievement', player.name, achiev_id);
-      } else {
-        socket.emit('fail');
       }
+      socket.broadcast.emit('new-achievement', player.name, achiev_id);
+      socket.emit('new-achievement', player.name, achiev_id);
     } catch (error) {
       console.log('Error in new-achievement: ', error);
       socket.emit('fail');

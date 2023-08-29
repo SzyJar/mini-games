@@ -8,6 +8,7 @@ class ShooterGame extends Component {
     super();
     this.state = {
       game_running: false,
+      achievements: []
     }
   }
 
@@ -15,6 +16,15 @@ class ShooterGame extends Component {
     this.setState({
       game_running: true,
     })
+  }
+
+  achiev = (id) => {
+    if(!this.state.achievements.includes(id)) {
+      this.props.achiev(id);
+      this.setState({
+        achievements: [id, ...this.state.achievements]
+      })
+    }
   }
 
   render() {
@@ -25,7 +35,7 @@ class ShooterGame extends Component {
           Protect your candy stash from the shameless thieves!</p>
           
           {this.state.game_running
-          ? <Shooter />
+          ? <Shooter achiev={this.achiev}/>
           : <button className='start' onClick={this.startGame}>
             START
             </button>}

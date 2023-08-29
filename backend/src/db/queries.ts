@@ -36,6 +36,15 @@ export async function scoreAchievement(user_id: number, achiev_id: number): Prom
   return result.rows[0].id;
 }
 
+export async function getAchievName(id: number): Promise<string> {
+  const query = `SELECT name FROM achievements
+  WHERE id = $1
+  `
+  const values = [id,];
+  const result = await db.query(query, values);
+  return result.rows[0].name;
+}
+
 interface Achievement {
   scored_at: string;
   name: string;

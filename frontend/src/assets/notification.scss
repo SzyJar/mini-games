@@ -1,3 +1,11 @@
+@keyframes scrollText {
+  0% {
+    transform: translateX(30%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
 .notification {
   position: fixed;
   bottom: 0;
@@ -8,7 +16,12 @@
   transition: transform 1s ease;
   color: white;
   padding: 0;
+  padding-left: 10px;
   text-align: left;
+  font-size: 14px;
+  border-radius: 10px 0 0 0;
+  white-space: nowrap;
+  overflow: hidden;
 
   &.hide {
     transform: translateY(80px);
@@ -19,13 +32,16 @@
   }
 
   h2 {
-    padding: 8px;
+    padding: 0;
     margin: 0;
-    font-size: 20px;
+    overflow: auto;
+    animation: scrollText 4s linear;
   }
 
   p {
-    padding: 5px;
+    padding: 5px 0 0 0;
     margin: 0;
+    overflow: auto;
+    animation: scrollText 4s linear;
   }
 }

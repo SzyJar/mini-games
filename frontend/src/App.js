@@ -44,7 +44,7 @@ class App extends Component {
               description: this.state.new_achievement.description,
             }
           });
-        }, 3000);
+        }, 4500);
       })
     })
   }
@@ -68,6 +68,7 @@ class App extends Component {
         <div className={`notification
         ${this.state.new_achievement.show ? 'show' : 'hide'}`}>
           <h2>{this.state.new_achievement.name}</h2>
+          <p>Got new achievement:</p>
           <p>{this.state.new_achievement.description}</p>
         </div>
 

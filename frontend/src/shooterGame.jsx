@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
 import Shooter from './controllers/shooter/shooter'
 import './assets/shooter.scss'
 
@@ -13,10 +11,6 @@ class ShooterGame extends Component {
     }
   }
 
-  changeScreen = () => {
-    this.props.back('welcome');
-  }
-
   startGame = () => {
     this.setState({
       game_running: true,
@@ -26,9 +20,6 @@ class ShooterGame extends Component {
   render() {
     return (
       <div className="shooter-game">
-         <button className='back' onClick={this.changeScreen}>
-          < FontAwesomeIcon icon={faArrowLeftLong} />
-        </button>
         <div className="ui">
           <p>A group of sugar addicts have broken into your candy store!<br/>
           Protect your candy stash from the shameless thieves!</p>

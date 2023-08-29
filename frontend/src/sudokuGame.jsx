@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Sudoku from './controllers/sudoku/sudoku'
 import './assets/sudoku.scss'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
 
 
 const difficulties = {
@@ -33,10 +31,6 @@ class SudokuGame extends Component {
         difficulty: difficulties.easy,
         animateIndex: 0,
       }
-  }
-
-  changeScreen = () => {
-    this.props.back('welcome');
   }
 
   generateNew = () => {
@@ -114,9 +108,6 @@ class SudokuGame extends Component {
   render() {
     return (
       <div className='sudoku-game'>
-         <button className='back' onClick={this.changeScreen}>
-          < FontAwesomeIcon icon={faArrowLeftLong} />
-        </button>
         <div className="grid">
           {this.state.win_message && (
             <div className="modal">

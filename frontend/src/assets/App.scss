@@ -11,6 +11,25 @@ body {
 
 .App {
   text-align: center;
+
+  .back {
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    width: 100px;
+    height: 100px;
+    font-size: 70px;
+    border-radius: 50%;
+    border: 2px solid $text-color;
+    color: $text-color;
+    background-color: $primary-color;
+    z-index: 999;
+    
+    &:hover{
+      background-color: $text-color-secondary;
+      cursor: pointer;
+    }
+  }
 }
 
 .App-body {
@@ -94,23 +113,6 @@ body {
 
     &:active {
       transform: translate(2px, 2px);
-    }
-  }
-
-  .back {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100px;
-    height: 100px;
-    font-size: 70px;
-    border-radius: 50%;
-    border: 2px solid $text-color;
-    color: $text-color;
-    background-color: $primary-color;
-
-    &:hover{
-      background-color: $text-color-secondary;
     }
   }
 

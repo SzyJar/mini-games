@@ -4,7 +4,6 @@ import { makeResponse } from './controllers/rps/response'
 import TypingAnimation from './controllers/rps/typingAnimation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHand, faHandBackFist, faHandScissors } from '@fortawesome/free-regular-svg-icons'
-import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
 
 
 const moves = {
@@ -67,10 +66,6 @@ class RpsGame extends Component {
     }
   };
 
-  changeScreen = () => {
-    this.props.back('welcome');
-  }
-
   render() {
     return (
       <div className="game">
@@ -81,9 +76,6 @@ class RpsGame extends Component {
           </div>
         </div>
         <div className="ui">
-          <button className='back' onClick={this.changeScreen}>
-          < FontAwesomeIcon icon={faArrowLeftLong} />
-          </button>
           <h1>Monika played:&nbsp;&nbsp;  { this.state.bot_play }</h1>
           <h1>You played:&nbsp;&nbsp; { this.state.your_play }</h1>
           <h1>{this.state.winner}</h1>

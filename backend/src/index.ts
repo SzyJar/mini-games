@@ -5,7 +5,11 @@ import { selectUser, createUser, scoreAchievement, getAchievements } from './db/
 
 
 const server = http.createServer();
-const io = new Server(server);
+const io = new Server(server, {
+  cors: {
+    origin: ['https://szyjar.github.io', 'http://localhost:3000'],
+  }
+});
 
 const PORT = 5000;
 const saltRounds = 12;

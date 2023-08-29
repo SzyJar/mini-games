@@ -1,7 +1,7 @@
 import http from 'http';
 const bcrypt = require('bcrypt');
 import { Server, Socket } from 'socket.io';
-import { selectUser, createUser } from './db/queries';
+import { selectUser, createUser, scoreAchievement, getAchievements } from './db/queries';
 
 
 const server = http.createServer();
@@ -11,12 +11,13 @@ const PORT = 5000;
 const saltRounds = 12;
 
 interface Player {
-  name: string;
+  player_id: number
+  name: string
   socket_id: string
 }
 
 interface PlayersMap {
-  [socket_id: string]: Player;
+  [socket_id: string]: Player
 }
 
 const players: PlayersMap = {
@@ -34,7 +35,7 @@ io.on('connect', (socket: Socket): void => {
       if (isValidPassword) {
         // Push to active player list
         if(!players.hasOwnProperty(socket.id)) {
-          const newPlayer: Player = { name: user.name, socket_id: socket.id };
+          const newPlayer: Player = { player_id: user.id, name: user.name, socket_id: socket.id };
           players[newPlayer.socket_id] = newPlayer;
         }
         socket.emit('success');
@@ -53,7 +54,7 @@ io.on('connect', (socket: Socket): void => {
         const hash = await bcrypt.hash(password, saltRounds);
         const new_user_id = await createUser(name, hash);
         // Push to active users
-        const newPlayer: Player = { name: name, socket_id: socket.id };
+        const newPlayer: Player = { player_id: new_user_id, name: name, socket_id: socket.id };
         players[newPlayer.socket_id] = newPlayer;
         socket.emit('success');
       } catch (error) {
@@ -65,11 +66,31 @@ io.on('connect', (socket: Socket): void => {
     }
   })
 
-  socket.on('new-achievement', (achiev_id: number): void => {
+  socket.on('new-achievement', async (achiev_id: number): Promise<void> => {
     // save to db
-    // 
-    const player_name = players[socket.id]
-    socket.emit('new-achievment', player_name, achiev_id);
+    try {
+      if(players.hasOwnProperty(socket.id)) {
+        const player = players[socket.id];
+        const scored = await scoreAchievement(player.player_id, achiev_id);
+
+        socket.broadcast.emit('new-achievement', player.name, achiev_id);
+      } else {
+        socket.emit('fail');
+      }
+    } catch (error) {
+      console.log('Error in new-achievement: ', error);
+      socket.emit('fail');
+    }
+  });
+
+  socket.on('get-achievements', async (): Promise<void> => {
+    if(players.hasOwnProperty(socket.id)) {
+      const player = players[socket.id];
+      const achievements = await getAchievements(player.player_id)
+      socket.emit('achievements', achievements);
+    } else {
+      socket.emit('fail');
+    }
   });
 
   socket.on('disconnect', (): void => {

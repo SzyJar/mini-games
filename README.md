@@ -1,7 +1,13 @@
+[![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=white)](#) [![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)](#) [![Socket.io](https://img.shields.io/badge/Socket.io-black?style=for-the-badge&logo=socket.io&badgeColor=white)](#) [![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)](#)
 # Mini games
 ## Visit https://szyjar.github.io/mini-games/ for live project
 
-The games are coded in JavaScript, while the user interface is built using React.
+# Functionality available in the application
+
+* Log in or register to save your progress
+* Share your achievements with other players online in real time
+* Track your progress with insight into your scored achievements
+* Play animated, responsive games
 
 ## Sudoku
 Select your preferred difficulty level from three options: Easy, Medium, and Hard. Each puzzle is uniquely generated to ensure a fresh experience every time.

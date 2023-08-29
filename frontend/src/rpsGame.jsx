@@ -71,10 +71,10 @@ class RpsGame extends Component {
       this.setState({ achievements: [5, ...this.state.achievements] });
     } else if (winrate > 53 && history > 12 && !this.state.achievements.includes(4)) {
       this.props.achiev(4);
-      this.setState({ achievements: [5, ...this.state.achievements] });
+      this.setState({ achievements: [4, ...this.state.achievements] });
     } else if (winrate < 10 && history > 15 && !this.state.achievements.includes(6)) {
       this.props.achiev(6);
-      this.setState({ achievements: [5, ...this.state.achievements] });
+      this.setState({ achievements: [6, ...this.state.achievements] });
     }
   };
 

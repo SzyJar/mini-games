@@ -1,3 +1,5 @@
+@import './notification.scss';
+
 $primary-color: #282c34;
 $secondary-color: rgba(52, 48, 40, 0.95);
 $text-color: white;
@@ -16,9 +18,9 @@ body {
     position: fixed;
     top: 5px;
     left: 5px;
-    width: 100px;
-    height: 100px;
-    font-size: 70px;
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
     border-radius: 50%;
     border: 2px solid $text-color;
     color: $text-color;

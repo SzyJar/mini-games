@@ -14,6 +14,11 @@ class App extends Component {
     super();
     this.state = {
       game: 'welcome',
+      new_achievement: {
+        show: false,
+        name: '',
+        description: '',
+      }
     }
     this.socket = null;
   }
@@ -21,8 +26,26 @@ class App extends Component {
   componentDidMount() {
     this.socket = io(process.env.REACT_APP_SERVER_URL);
 
-    this.socket.on('new-achievement', (name, achiev_id) => {
-      console.log(name, achiev_id);
+    this.socket.on('new-achievement', (name, achiev) => {
+      
+      this.setState({
+        new_achievement: {
+          show: true,
+          name: name,
+          description: achiev,
+        }
+      },
+      () => {
+        setTimeout(() => {
+          this.setState({
+            new_achievement: {
+              show: false,
+              name: this.state.new_achievement.name,
+              description: this.state.new_achievement.description,
+            }
+          });
+        }, 3000);
+      })
     })
   }
 
@@ -41,10 +64,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
+        <div className={`notification
+        ${this.state.new_achievement.show ? 'show' : 'hide'}`}>
+          <h2>{this.state.new_achievement.name}</h2>
+          <p>{this.state.new_achievement.description}</p>
+        </div>
+
         { this.state.game !== 'welcome' ?
         <button className='back' onClick={() => this.changeScreen('welcome')}>
           < FontAwesomeIcon icon={faArrowLeftLong} />
         </button> : null }
+
         <div className="App-body">
         { this.state.game === 'rps' ? <RpsGame achiev={this.handleAchiev}/>
         : this.state.game === 'sudoku' ? <SudokuGame achiev={this.handleAchiev}/>

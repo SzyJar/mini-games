@@ -1,0 +1,87 @@
+.user-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  color: white;
+  font-size: 1.3rem;
+  margin: 10px 20px 0 0;
+  border-radius: 20px;
+  padding: 10px 30px 30px 30px;
+  max-height: 10px;
+  width: 110px;
+  overflow: hidden;
+  text-align: right;
+  z-index: 999;
+  transition: max-height 0s ease;
+  
+  .achievment{
+    width: 200px;
+
+    p {
+      text-align: left;
+      margin: 10px 0 0 0;
+    }
+
+    .text {
+      font-size: 0.8rem;
+      margin: 0;
+      text-align: left;
+    }
+    .date{
+      font-size: 0.8rem;
+      margin: 0;
+      text-align: right;
+    }
+  }
+
+  button {
+    margin: 20px 0 0 20px;
+    background-color: #282c34;
+    color: white;
+    border-radius:  20px;
+    border: 1px solid white;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &:hover {
+    background-color: rgba($color: #373d48, $alpha: 0.95);
+    border-color: black;
+    max-height: 500px;
+    width: auto;
+    transition: max-height 0.5s ease-out;
+  }
+
+  .login-window {
+    text-align: left;
+    width: 100%;
+
+    input {
+      background-color: rgba($color: white, $alpha: 0.1);
+      border-color: white;
+      outline: none;
+      border: 1px solid white;
+      color: white;
+    }
+
+    p {
+      margin: 15px 0 0 0;
+    }
+
+    .error{
+      color: crimson;
+      font-size: 1rem;
+      margin: 20px 0 0 0;
+    }
+
+    .register{
+      width: 100%;
+      display: flex;
+      align-content: space-between;
+      justify-content: center;
+
+    }
+  }
+}

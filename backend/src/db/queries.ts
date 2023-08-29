@@ -61,3 +61,12 @@ export async function getAchievements(id: number): Promise<Achievement[]> {
   const result = await db.query(query, values);
   return result.rows;
 }
+
+export async function getOneAchievment(user_id: number, achiev_id: number) {
+  const query = `SELECT * FROM scored_achiev
+  WHERE user_id = $1 AND achievement_id = $2
+  `
+  const values = [user_id, achiev_id];
+  const result = await db.query(query, values);
+  return result.rows[0];
+}

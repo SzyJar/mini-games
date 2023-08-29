@@ -1,7 +1,8 @@
 @import './notification.scss';
+@import './user.scss';
 
 $primary-color: #282c34;
-$secondary-color: rgba(52, 48, 40, 0.95);
+$secondary-color: rgba($color: #343028, $alpha: 0.95);
 $text-color: white;
 $text-color-secondary: #1a1a1a;
 
@@ -16,8 +17,9 @@ body {
 
   .back {
     position: fixed;
-    top: 5px;
-    left: 5px;
+    top: 0;
+    left: 0;
+    margin: 10px 0 0 20px;
     width: 60px;
     height: 60px;
     font-size: 40px;

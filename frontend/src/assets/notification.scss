@@ -22,6 +22,7 @@
   border-radius: 10px 0 0 0;
   white-space: nowrap;
   overflow: hidden;
+  z-index: 9999;
 
   &.hide {
     transform: translateY(80px);

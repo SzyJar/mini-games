@@ -30,6 +30,7 @@ class SudokuGame extends Component {
         ),
         difficulty: difficulties.easy,
         animateIndex: 0,
+        achievement: false,
       }
   }
 
@@ -46,6 +47,9 @@ class SudokuGame extends Component {
       win_message: false,
       animateIndex: 0
     }, () => this.animateCells())
+    this.setState({
+      achievement: false,
+    })
   }
 
   validate = () => {
@@ -57,12 +61,17 @@ class SudokuGame extends Component {
       if(this.sudoku.validation_board.every(row => row.every(value => value === true))
       && this.sudoku.board.every(row => row.every(value => value > 0))) {
         this.setState({ win_message: true });
-        if(this.state.difficulty === difficulties.easy) {
-          this.props.achiev(1);
-        } else if (this.state.difficulty === difficulties.medium) {
-          this.props.achiev(2);
-        } else if (this.state.difficulty === difficulties.medium) {
-          this.props.achiev(3);
+        if(this.state.achievement === false){
+          if(this.state.difficulty === difficulties.easy) {
+            this.props.achiev(1);
+          } else if (this.state.difficulty === difficulties.medium) {
+            this.props.achiev(2);
+          } else if (this.state.difficulty === difficulties.medium) {
+            this.props.achiev(3);
+          }
+          this.setState({
+            achievement: true,
+          })
         }
       }
     })

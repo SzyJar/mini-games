@@ -42,12 +42,13 @@ io.on('connect', (socket: Socket): void => {
           const newPlayer: Player = { player_id: user.id, name: user.name, socket_id: socket.id };
           players[newPlayer.socket_id] = newPlayer;
         }
-        socket.emit('success');
+        socket.emit('logged-in', user.name);
+      } else {
+        socket.emit('log-in-fail');
       }
     } else {
-      socket.emit('fail');
+      socket.emit('log-in-fail');
     }
-    console.log(players)
   })
 
   socket.on('register', async (name: string, password: string): Promise<void> => {
@@ -61,17 +62,17 @@ io.on('connect', (socket: Socket): void => {
         // Push to active users
         const newPlayer: Player = { player_id: new_user_id, name: name, socket_id: socket.id };
         players[newPlayer.socket_id] = newPlayer;
-        socket.emit('success');
+        socket.emit('logged-in', name);
       } catch (error) {
         console.log('Error in register: ', error);
         socket.emit('fail');
       }
     } else {
-      socket.emit('fail');
+      socket.emit('register-fail');
     }
   })
 
-  socket.on('new-achievement', async (achiev_id: number): Promise<void> => {
+  socket.on('new-achievement', async (achiev_id: number): Promise<void | boolean> => {
     try {
       let player: Player = {
         player_id: 0,
@@ -80,6 +81,11 @@ io.on('connect', (socket: Socket): void => {
       }
       if(players.hasOwnProperty(socket.id)) {
         player = players[socket.id];
+        const already_exist = await query.getOneAchievment(player.player_id, achiev_id);
+        if(already_exist) {
+          // Achievement already scored, stop here
+          return false;
+        }
         const scored = await query.scoreAchievement(player.player_id, achiev_id);
       }
       const achiev_name = await query.getAchievName(achiev_id);

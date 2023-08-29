@@ -15,7 +15,7 @@ const Shooter = ({ achiev }) => {
         <div>Candy retrieved: ${clickCount}</div>
         <div>Candy stolen: ${stealCount}</div>
       `;
-      if(clickCount === 20 && stealCount < 3) {
+      if(clickCount === 20 && stealCount < 10) {
         achiev(7);
       } else if (clickCount < 10 && stealCount === 20) {
         achiev(8);
@@ -36,7 +36,7 @@ const Shooter = ({ achiev }) => {
       thief.style.height = thief.style.width;
 
       const directionX = Math.random() > 0.5 ? 1 : -1;
-      const directionY = Math.random() > 0.5 ? 0.48 : -0.48;
+      const directionY = Math.random() > 0.5 ? Math.random() * 0.48 : Math.random() * -0.48;
       const speed = Math.random() + 0.4;
 
       container.appendChild(thief);

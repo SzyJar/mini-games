@@ -5,6 +5,7 @@ import io from 'socket.io-client';
 import RpsGame from './rpsGame'
 import SudokuGame from './sudokuGame'
 import ShooterGame from './shooterGame'
+import Spinner from './spinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeftLong } from '@fortawesome/free-solid-svg-icons'
 
@@ -17,6 +18,7 @@ class App extends Component {
       username: 'Anonymous',
       error: '',
       achievements: [],
+      loading: false,
       login: {
         username: 'Player',
         password: 'Player'
@@ -36,6 +38,8 @@ class App extends Component {
     this.socket.on('logged-in', (name) => {
       this.setState({
         username: name,
+        loading: false,
+        error: '',
       })
       this.socket.emit('get-achievements');
     })
@@ -48,13 +52,15 @@ class App extends Component {
 
     this.socket.on('log-in-fail', () => {
       this.setState({
-        error: 'Incorrect credentials'
+        error: 'Incorrect credentials',
+        loading: false,
       })
     })
 
     this.socket.on('register-fail', () => {
       this.setState({
-        error: 'User already exist'
+        error: 'User already exist',
+        loading: false,
       })
     })
 
@@ -108,6 +114,9 @@ class App extends Component {
   }
 
   login = () => {
+    this.setState({
+      loading: true,
+    })
     this.socket.emit(
       'login',
       this.state.login.username,
@@ -124,6 +133,9 @@ class App extends Component {
   }
 
   register = () => {
+    this.setState({
+      loading: true,
+    })
     this.socket.emit(
       'register',
       this.state.login.username,
@@ -148,7 +160,9 @@ class App extends Component {
 
         <div className='user-panel'>
           { this.state.username }
-          { this.state.username === 'Anonymous' ?
+          { this.state.username === 'Anonymous'
+          ?
+          !this.state.loading ?
           <div className='login-window'>
             <p>Player name:</p>
             <input
@@ -167,7 +181,7 @@ class App extends Component {
               <button onClick={this.register}>REGISTER</button>
             </div>
             <div className="error">{ this.state.error }</div>
-          </div>
+          </div> : <Spinner />
           :
           <div>
             <button onClick={this.logout}>LOGOUT</button>

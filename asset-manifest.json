@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/mini-games/static/css/main.39d86b61.css",
+    "main.css": "/mini-games/static/css/main.764ffe46.css",
     "main.js": "/mini-games/static/js/main.e55b5274.js",
     "static/js/787.86d50049.chunk.js": "/mini-games/static/js/787.86d50049.chunk.js",
-    "static/media/shop.png": "/mini-games/static/media/shop.1be0f68c9dee209a3456.png",
-    "static/media/rps_girl.png": "/mini-games/static/media/rps_girl.d17b5e20c2045334da9b.png",
-    "static/media/chibi_victory.png": "/mini-games/static/media/chibi_victory.97b18bf45b25ff181d0a.png",
+    "static/media/chibi_victory.png": "/mini-games/static/media/chibi_victory.70807ff749b85ba6a29b.png",
+    "static/media/rps_girl.jpg": "/mini-games/static/media/rps_girl.ff15776b8a2245026b40.jpg",
     "static/media/runner.png": "/mini-games/static/media/runner.467dd2a3243f48262a88.png",
+    "static/media/shop.jpg": "/mini-games/static/media/shop.1f17f86ff505d802f2d0.jpg",
     "index.html": "/mini-games/index.html",
-    "main.39d86b61.css.map": "/mini-games/static/css/main.39d86b61.css.map",
+    "main.764ffe46.css.map": "/mini-games/static/css/main.764ffe46.css.map",
     "main.e55b5274.js.map": "/mini-games/static/js/main.e55b5274.js.map",
     "787.86d50049.chunk.js.map": "/mini-games/static/js/787.86d50049.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.39d86b61.css",
+    "static/css/main.764ffe46.css",
     "static/js/main.e55b5274.js"
   ]
 }

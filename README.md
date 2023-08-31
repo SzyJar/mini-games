@@ -13,7 +13,7 @@
 Select your preferred difficulty level from three options: Easy, Medium, and Hard. Each puzzle is uniquely generated to ensure a fresh experience every time.
 After entering your solution, click the "Check my solution" button. You'll get instant feedback, highlighting your mistakes and celebrating your successes.
 
-![image](https://github.com/SzyJar/mini-games/assets/107247457/9f1fb5b6-6d6b-4e1b-bb7d-d232856a4d72)
+![image](https://github.com/SzyJar/mini-games/assets/107247457/dbc1593a-a4d2-4d44-90fd-81140adae1b4)
 
 ## Rock, Paper, Scissors
 Challenge Monika to a game of rock, paper, scissors. Monika will skillfully study your moves and strategically anticipate your next choice. Keep her on her virtual toes by avoiding predictable patterns!

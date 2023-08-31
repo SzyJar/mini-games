@@ -1,6 +1,6 @@
 [![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=white)](#) [![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)](#) [![Socket.io](https://img.shields.io/badge/Socket.io-black?style=for-the-badge&logo=socket.io&badgeColor=white)](#) [![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)](#)
 # Mini games
-## Visit https://szyjar.github.io/mini-games/ for live project
+Log in to mini-games and play Sudoku to hone your puzzle-solving skills, challenge the Rock-Paper-Scissor algorithm and try to beat it, or protect your sweet shop from thieves. Achievements within these games are shared with players and recorded in a PostgreSQL database.
 
 # Functionality available in the application
 
@@ -16,7 +16,7 @@ After entering your solution, click the "Check my solution" button. You'll get i
 ![image](https://github.com/SzyJar/mini-games/assets/107247457/dbc1593a-a4d2-4d44-90fd-81140adae1b4)
 
 ## Rock, Paper, Scissors
-Challenge Monika to a game of rock, paper, scissors. Monika will skillfully study your moves and strategically anticipate your next choice. Keep her on her virtual toes by avoiding predictable patterns!
+Challenge Monika to a game of rock, paper, scissors. Monika will study your moves and anticipate your next choice. Keep her on her virtual toes by avoiding predictable patterns!
 
 ![image](https://github.com/SzyJar/mini-games/assets/107247457/1ba7969a-e858-4f80-942b-132bdb513f36)
 
